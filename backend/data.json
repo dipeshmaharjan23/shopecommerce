@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Samsung SSD Pro 240Gb",
+    "price": "5000",
+    "description": "Solid State Drive or SSD is a technology that is rapidly replacing the Hard Disk Drive in the computer world. Like HDD, SSD is a data storage device, and the difference between the two lies in the way they store data. ",
+    "ratings": 4.5,
+    "image": [
+      {
+        "public_id": "products/123456789",
+        "url": "https://www.amazon.com/Samsung-256GB-Inch-Internal-MZ-76P256BW/dp/B07864XMTK?th=1"
+      }
+    ],
+    "category": "electronics",
+    "seller": "amazon",
+    "stock": "20",
+    "numOfReviews": 20,
+    "reviews": []
+  }
+]
