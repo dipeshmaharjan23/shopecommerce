@@ -10,7 +10,58 @@
         "url": "https://www.amazon.com/Samsung-256GB-Inch-Internal-MZ-76P256BW/dp/B07864XMTK?th=1"
       }
     ],
-    "category": "electronics",
+    "category": "Electronics",
+    "seller": "amazon",
+    "stock": "20",
+    "numOfReviews": 20,
+    "reviews": []
+  },
+  {
+    "name": "EOS REBEL T7 18-55mm f/3.5-5.6 IS II Kit",
+    "price": "500000",
+    "description": "24.1 Megapixel CMOS (APS-C) sensor with is 100–6400 (H: 12800),Built-in Wi-Fi and NFC technology,9-Point AF system and AI Servo AF",
+    "ratings": 4.7,
+    "image": [
+      {
+        "public_id": "products/12345678",
+        "url": "https://unsplash.com/photos/W6OCE1sGOYw"
+      }
+    ],
+    "category": "Cameras",
+    "seller": "amazon",
+    "stock": "5",
+    "numOfReviews": 20,
+    "reviews": []
+  },
+  {
+    "name": "Acer Aspire 5 A515-45-R74Z ",
+    "price": "30000",
+    "description": "AMD Ryzen 5 5500U Hexa-Core Mobile Processor with AMD Radeon Graphics.Maximum Power Supply Wattage 45 W ",
+    "ratings": 4.5,
+    "image": [
+      {
+        "public_id": "products/123456",
+        "url": "https://unsplash.com/photos/SQncrWvTBf8"
+      }
+    ],
+    "category": "Laptop",
+    "seller": "amazon",
+    "stock": "20",
+    "numOfReviews": 20,
+    "reviews": []
+  },
+  {
+    "name": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+    "price": "5000",
+    "description": "Atomic Habits will reshape the way you think about progress and success, and give you the tools and strategies you need to transform your habits--whether you are a team looking to win a championship, an organization hoping to redefine an industry, or simply an individual who wishes to quit smoking, lose weight, reduce stress, or achieve any other goal.",
+    "ratings": 4.5,
+    "image": [
+      {
+        "public_id": "products/12345",
+        "url": "https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299/ref=zg_sccl_2/133-9897840-1461842?pd_rd_w=mn161&content-id=amzn1.sym.193afb92-0c19-4833-86f8-850b5ba40291&pf_rd_p=193afb92-0c19-4833-86f8-850b5ba40291&pf_rd_r=SMY9KM0J4630JY7M24AM&pd_rd_wg=iw17G&pd_rd_r=1107507f-6ede-43b3-8936-409100d594fc&pd_rd_i=0735211299&psc=1"
+      }
+    ],
+    "category": "Books",
     "seller": "amazon",
     "stock": "20",
     "numOfReviews": 20,

@@ -3,11 +3,8 @@ const app = express();
 
 app.use(express.json());
 
-const product = require("./routes/products");
+const productRoute = require("./routes/products");
 
-app.use("/api/v1", product);
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+app.use("/", productRoute);
 
 module.exports = app;

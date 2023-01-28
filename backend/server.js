@@ -6,7 +6,7 @@ dotenv.config({ path: "backend/config/config.env" });
 
 connectDatabase();
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(
     `server started on port ${process.env.PORT} in ${process.env.NODE_ENV_DEVELOPMENT} mode`
   );
