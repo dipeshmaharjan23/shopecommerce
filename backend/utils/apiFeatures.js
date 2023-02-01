@@ -28,7 +28,7 @@ class APIFeatures {
 
     // advance filter for price,ratings etc
     let query = JSON.stringify(queryStr);
-    queryStr = queryStr.replace(/\b(gt|gte|lte|lt)\b/g, (match) => `${match}`);
+    queryStr = query.replace(/\b(gt|gte|lte|lt)\b/g, (match) => `${match}`);
 
     this.query = this.query.find(queryCopy);
     return this;
