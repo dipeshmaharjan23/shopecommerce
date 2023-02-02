@@ -27,6 +27,23 @@ module.exports = (err, req, res, next) => {
       error = new ErrorHandler(message, 400);
     }
 
+    // Handling dublicate key errors
+    if (err.code === 11000) {
+      const message = `Dublicate ${Object.keys(err.errors)} entered`;
+      error = new ErrorHandler(message, 400);
+    }
+
+    // handling wrong JWT errors
+    if (err.code === "JsonWebTokenError") {
+      const message = "Invalid JWT";
+      error = new ErrorHandler(message, 400);
+    }
+    // handling expired JWT errors
+    if (err.code === "TokenExpiredError") {
+      const message = "token expired";
+      error = new ErrorHandler(message, 400);
+    }
+
     res.status(err.statusCode).json({
       success: false,
       message: error.message || "Internal server error",
