@@ -136,8 +136,41 @@ const createProductReview = async function (req, res) {
   });
 };
 
+// get product reviews
 const getProductReviews = async (req, res) => {
   const product = await Product.findById(req.query.id);
+
+  res.status(200).json({
+    success: true,
+    reviews: product.reviews,
+  });
+};
+// delete product review
+const deleteReview = async (req, res) => {
+  const product = await Product.findById(req.query.id);
+
+  const reviews = product.reviews.filter(
+    (review) => review._id.toString() === req.query.id.toString()
+  );
+  const numOfReviews = reviews.length;
+
+  const ratings =
+    product.raviews.reduce((acc, item) => item.rating + acc, 0) /
+    reviews.length;
+
+  await Product.findByIdAndUpdate(
+    req.query.id,
+    {
+      reviews,
+      ratings,
+      numOfReviews,
+    },
+    {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    }
+  );
 
   res.status(200).json({
     success: true,
@@ -153,4 +186,5 @@ module.exports = {
   deleteProduct,
   createProductReview,
   getProductReviews,
+  deleteReview,
 };
