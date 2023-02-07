@@ -1,14 +1,16 @@
-import { RootState } from "@/redux/store";
+// import { RootState } from "@/redux/store";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setProduct } from "@/redux/slice/productSlice";
 
-const getProduct = async () => {
+const getProduct = () => {
+  // const { product } = useSelector((state: RootState) => state.product);
   const dispatch = useDispatch();
-  const { product } = useSelector((state: RootState) => state.product);
-  try {
-    const { data } = await axios.get("/api/products");
-    // dispatch(product(data));
-  } catch (error) {
-    console.log(error);
-  }
+
+  const result = async () => {
+    const { data } = await axios.get("/api/allproducts");
+    dispatch(setProduct(data));
+  };
 };
+
+export default getProduct;

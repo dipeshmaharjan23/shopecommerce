@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify-icon/react";
 import MetaData from "./MetaData";
+// import getProduct from "../actions/productActions";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { setProduct } from "@/redux/slice/productSlice";
+
 type Props = {};
 
 const Main = (props: Props) => {
+  const dispatch = useDispatch();
+
+  const result = async () => {
+    const { data } = await axios.get("http:/localhost:5000/api/allproducts");
+    // dispatch(setProduct(data));
+    console.log(data);
+  };
+
+  useEffect(() => {
+    result();
+  });
   return (
     <>
       <MetaData title={"Buy Best Products Online"} />
