@@ -5,7 +5,7 @@ import MetaData from "./MetaData";
 // import getProduct from "../actions/productActions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { setProduct } from "@/redux/slice/productSlice";
+import { setProduct,setProductCount } from "@/redux/slice/productSlice";
 
 type Props = {};
 
@@ -13,8 +13,9 @@ const Main = (props: Props) => {
   const dispatch = useDispatch();
 
   const result = async () => {
-    const { data } = await axios.get("http:/localhost:5000/api/allproducts");
-    // dispatch(setProduct(data));
+    const { data } = await axios.get("api/allproducts");
+    dispatch(setProduct(data));
+    dispatch(setProductCount(data.productCount))
     console.log(data);
   };
 
