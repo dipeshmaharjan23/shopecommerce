@@ -26,9 +26,11 @@ class APIFeatures {
     const removeFields = ["keyword", "page", "limit"];
     removeFields.forEach((el) => delete queryCopy[el]);
 
+    // console.log(queryCopy);
+
     // advance filter for price,ratings etc
-    let query = JSON.stringify(queryStr);
-    queryStr = query.replace(/\b(gt|gte|lte|lt)\b/g, (match) => `${match}`);
+    // let query = JSON.stringify(queryStr);
+    // queryStr = query.replace(/\b(gt|gte|lte|lt)\b/g, (match) => `${match}`);
 
     this.query = this.query.find(queryCopy);
     return this;

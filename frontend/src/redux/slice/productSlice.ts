@@ -22,54 +22,70 @@ interface IProduct {
   };
 }
 interface IProducts {
-  product: IProduct[];
+  products: any;
   productCount: number;
+  count: number;
+  success: boolean;
+}
+
+interface IProd {
   loading: boolean;
+  allProducts: IProducts;
+  // products?: IProduct[];
+  // productCount?: number;
+  // count?: number;
+  // success?: boolean;
 }
 
 const initialState = {
-  product: [
-    {
-      name: "",
-      price: 0,
-      description: "",
-      ratings: 0,
-      image: {
-        public_id: "",
-        url: "",
-      },
-      category: "",
-      seller: "",
-      stock: "",
-      numOfReviews: 0,
-      reviews: {
-        user: "",
-        rating: 0,
-        name: "",
-        comment: "",
-      },
-    },
-  ],
-  productCount: 0,
   loading: true,
+  allProducts: {
+    products: [
+      {
+        success: false,
+        count: 0,
+        productCount: 0,
+        loading: true,
+        products: [
+          {
+            name: "",
+            price: 0,
+            description: "",
+            ratings: 0,
+            image: {
+              public_id: "",
+              url: "",
+            },
+            category: "",
+            seller: "",
+            stock: "",
+            numOfReviews: 0,
+            reviews: {
+              user: "",
+              rating: 0,
+              name: "",
+              comment: "",
+            },
+          },
+        ],
+      },
+    ],
+    productCount: 0,
+    count: 0,
+    success: false,
+  },
 };
 
 export const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    setProduct(
-      state: IProducts,
-      action: { type: string; payload: IProduct[] }
-    ) {
-      state.product = action.payload;
+    setProduct(state: IProd, action: { type: string; payload: any }) {
+      state.allProducts = action.payload;
       state.loading = false;
-    },
-    setProductCount(state: IProducts, action: PayloadAction<number>) {
-      state.productCount = action.payload;
     },
   },
 });
 
-export const { setProduct,setProductCount } = productSlice.actions;
+export const { setProduct } = productSlice.actions;
 export default productSlice.reducer;
