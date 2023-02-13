@@ -1,10 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { Icon } from "@iconify-icon/react";
+import { IProduct } from "@/redux/slice/productSlice";
+import Link from "next/link";
 
-type Props = {};
+type Props = {
+  productDetails?: any;
+};
 
-const Cart = (props: Props) => {
+const Cart = ({ productDetails }: Props) => {
+  console.log(productDetails._id);
+  const handleClick = (id: string) => {};
   return (
     <>
       <div className=" shadow-zinc-600 border-2 w-[25rem] mx-12 mt-8 h-auto flex flex-col justify-center">
@@ -42,10 +48,14 @@ const Cart = (props: Props) => {
           />
           <p className="pl-4 text-gray-700">(5 Reviews)</p>
         </div>
-        <span className=" text-2xl my-4 pl-4 text-gray-700">$46.54</span>
-        <button className="bg-secondary-color p-2 text-white mx-12 rounded-md mb-12 mt-4">
-          View Details
-        </button>
+        <span className=" text-2xl my-4 pl-4 text-gray-700">
+          ${productDetails.price}
+        </span>
+        <Link href={`/${productDetails._id}`}>
+          <button className="bg-secondary-color p-2 text-white mx-12 rounded-md mxb-12 mt-4">
+            View Details
+          </button>
+        </Link>
       </div>
     </>
   );

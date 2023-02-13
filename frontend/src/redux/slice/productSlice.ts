@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface IProduct {
+export interface IProduct {
   name: string;
   price: number;
   description: string;
@@ -22,7 +22,7 @@ interface IProduct {
   };
 }
 interface IProducts {
-  products: any;
+  products?: any;
   productCount: number;
   count: number;
   success: boolean;
@@ -35,6 +35,7 @@ interface IProd {
   // productCount?: number;
   // count?: number;
   // success?: boolean;
+  errors: any;
 }
 
 const initialState = {
@@ -74,18 +75,47 @@ const initialState = {
     count: 0,
     success: false,
   },
+  errors: [],
+  productDetails: {
+    name: "",
+    price: 0,
+    description: "",
+    ratings: 0,
+    image: {
+      public_id: "",
+      url: "",
+    },
+    category: "",
+    seller: "",
+    stock: 0,
+    numOfReviews: 0,
+    reviews: {
+      user: "",
+      rating: 0,
+      name: "",
+      comment: "",
+    },
+  },
 };
 
 export const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    setProduct(state: IProd, action: { type: string; payload: any }) {
+    setProduct(state: IProd, action: { type: string; payload: IProducts }) {
       state.allProducts = action.payload;
       state.loading = false;
+    },
+    setErrors(state, action) {
+      state.errors = action.payload;
+      state.loading = false;
+    },
+    setProductDetails(state, action) {
+      state.productDetails = action.payload;
     },
   },
 });
 
-export const { setProduct } = productSlice.actions;
+export const { setProduct, setErrors, setProductDetails } =
+  productSlice.actions;
 export default productSlice.reducer;
