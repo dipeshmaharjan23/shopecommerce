@@ -44,7 +44,7 @@ const productId = (props: Props) => {
             height="480"
           />
         </div>
-        <div className="flex pt-24 w-[50%] flex-col justify-start">
+        <div className="flex pt-5 w-[50%] flex-col justify-start">
           <div className="w-[80%] ">
             <h1 className="text-4xl">{productDetails?.name}</h1>
             <hr className="my-8" />

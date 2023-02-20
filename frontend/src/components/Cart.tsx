@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify-icon/react";
 import { IProduct } from "@/redux/slice/productSlice";
@@ -9,8 +9,8 @@ type Props = {
 };
 
 const Cart = ({ productDetails }: Props) => {
-  console.log(productDetails._id);
-  const handleClick = (id: string) => {};
+  // console.log(productDetails._id);
+
   return (
     <>
       <div className=" shadow-zinc-600 border-2 w-[25rem] mx-12 mt-8 h-auto flex flex-col justify-center">

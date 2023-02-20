@@ -40,6 +40,7 @@ interface IProd {
 
 const initialState = {
   loading: true,
+  resPerPage: 3,
   allProducts: {
     products: [
       {
@@ -113,9 +114,12 @@ export const productSlice = createSlice({
     setProductDetails(state, action) {
       state.productDetails = action.payload;
     },
+    setResPerPage(state, action) {
+      state.resPerPage = action.payload;
+    },
   },
 });
 
-export const { setProduct, setErrors, setProductDetails } =
+export const { setProduct, setErrors, setProductDetails, setResPerPage } =
   productSlice.actions;
 export default productSlice.reducer;

@@ -2,8 +2,10 @@
 import axios from "axios";
 
 // get all products
-export const getProduct = () => {
-  return axios.get("api/allproducts").then((response) => response.data);
+export const getProduct = (currentPage: number) => {
+  return axios
+    .get(`api/allproducts?page=${currentPage}`)
+    .then((response) => response.data);
 };
 
 export const getProductDetails = (id: string | string[]) => {
