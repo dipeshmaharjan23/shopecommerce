@@ -2,9 +2,12 @@
 import axios from "axios";
 
 // get all products
-export const getProduct = (currentPage: number) => {
+export const getProduct = (
+  currentPage?: number,
+  keyword?: string | undefined
+) => {
   return axios
-    .get(`api/allproducts?page=${currentPage}`)
+    .get(`api/allproducts?keyword=${(keyword = "")}&page=${currentPage}`)
     .then((response) => response.data);
 };
 

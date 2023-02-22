@@ -12,11 +12,14 @@ import { RootState } from "@/redux/store";
 import Loader from "./Loader";
 import { useAlert } from "react-alert";
 import Pagination from "./Pagination";
+import { useRouter } from "next/router";
 // import Pagination from "react-js-pagination";
 
-type Props = {};
+type Props = {
+  keyword?: string | undefined;
+};
 
-const Main = (props: Props) => {
+const Main = ({ keyword }: Props) => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const { allProducts, loading, resPerPage } = useSelector(
@@ -29,11 +32,12 @@ const Main = (props: Props) => {
     setCurrentPage(pageNumber);
   };
   // console.log(allProducts.productCount);
+  // console.log("keyword", keyword);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await getProduct(currentPage);
+        const res = await getProduct(currentPage, keyword);
         dispatch(setProduct(res));
         dispatch(setResPerPage(res?.resPerPage));
         alert.success("success");
@@ -46,17 +50,8 @@ const Main = (props: Props) => {
 
     fetchProduct();
     // console.log(fetchProduct());
-  }, [getProduct, currentPage]);
+  }, [getProduct, currentPage, keyword]);
 
-  // const [postPerPage] = useState(4);
-
-  // const indexOfLastPost = currentPage * resPerPage;
-  // const indexOfFirstPost = indexOfLastPost - resPerPage;
-  // const currentPost = allProducts.products.slice(
-  //   indexOfFirstPost,
-  //   indexOfLastPost
-  // );
-  console.log(currentPage);
   return (
     <>
       {loading ? (
@@ -75,23 +70,8 @@ const Main = (props: Props) => {
                 );
               })}
           </div>
-          {/* {allProducts && (
-            <div className="flex justify-center mt-5">
-              <Pagination>
-                activePage={currentPage}
-                itemsCountPerPage={resPerPage}
-                totalItemsCount={allProducts?.productCount}
-                onChange={setCurrentPageNo}
-                nextPageText={"Next"}
-                prevPageText={"Prev"}
-                firstPageText={"First"}
-                lastPageText={"Last"}
-                innerClass={"flex mx-2"}
-                activeClass={"flex"}
-              </Pagination>
-            </div>
-          )} */}
-          <div className="flex justify-center items-center mt-40">
+
+          <div className="absolute bottom-12 left-[45%] transform ">
             <Pagination
               postPerPage={resPerPage}
               totalPosts={allProducts?.productCount}

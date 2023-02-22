@@ -51,7 +51,7 @@ const Cart = ({ productDetails }: Props) => {
         <span className=" text-2xl my-4 pl-4 text-gray-700">
           ${productDetails.price}
         </span>
-        <Link href={`/${productDetails._id}`}>
+        <Link href={`/product/${productDetails._id}`}>
           <button className="bg-secondary-color p-2 text-white mx-12 rounded-md mxb-12 mt-4">
             View Details
           </button>

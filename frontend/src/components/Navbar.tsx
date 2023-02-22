@@ -1,5 +1,6 @@
 import { Icon } from "@iconify-icon/react";
 import React from "react";
+import Search from "./Search";
 
 type Props = {};
 
@@ -16,16 +17,7 @@ const Navbar = (props: Props) => {
             Shop<span className="text-secondary-color">IT</span>
           </p>
         </div>
-        <div className="flex justify-between rounded-md">
-          <input
-            type="text"
-            className="w-[500px] pl-4 outline-none py-2 rounded-l-md"
-            placeholder="Enter product name"
-          />
-          <span className="bg-[#be4d25] flex items-center w-10 justify-center text-white text-xl rounded-r-md cursor-pointer">
-            <Icon icon="material-symbols:search-rounded" />
-          </span>
-        </div>
+        <Search />
         <div className="space-x-8 pr-14">
           <button className="bg-secondary-color px-6 py-2 rounded-md text-white text-xl">
             Login
